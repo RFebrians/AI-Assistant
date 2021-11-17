@@ -1,7 +1,7 @@
 # assist
 an experimental AI 
 
-## requirement 
+## environment 
 - python 3
 - windows 7 , 10 , 
 - linux
