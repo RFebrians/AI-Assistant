@@ -1,13 +1,16 @@
 # assist
 an experimental AI 
 
-## environment 
+## requirements
 - python 3
-- windows 7 , 10 , 
-- linux
-- mac (?)
-- android root (?)
-- android no root (failed)
+- pyaudio
+
+## environments
+- windows 7 , 10 = ok 
+- linux = ok
+- mac = ok
+- android root = (?)
+- android no root = not ok
 
 ## to start 
 
