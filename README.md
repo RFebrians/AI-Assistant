@@ -1,4 +1,4 @@
-# assist
+# AI-Assist
 an experimental AI 
 
 ## requirements
@@ -14,21 +14,11 @@ an experimental AI
 
 ## to start 
 
-first install all library
+- pip install -r requirements.txt or pip3 install -r requirements.txt
 
-- pip install -r requirements.txt
+- python3 aistart.py
 
-or
-
-- pip3 install -r requirements.txt
-
-then
-
-python3 aistart.py
-
-then
-
-speaking
+- speaking
 
 ## command
 - Hello
@@ -47,3 +37,5 @@ speaking
 https://github.com/MichalKacprzak99/jarvis
 
 https://www.youtube.com/watch?v=0sjRkz1UIDQ&ab_channel=edureka%21
+
+Dictionary : https://www.eea.europa.eu/help/glossary#c0=all&b_start=0
