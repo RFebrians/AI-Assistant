@@ -15,18 +15,18 @@ import os
 import getpass
 
 engine = pyttsx3.init()
+rate = engine.getProperty('rate')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('rate', rate +15)
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[10].id)
 
-# print(voices[0].id)
+# print(voices[0].id) optional [1] [2] [3] default 0 is en_us
 
 class ButlerAI:
     def __init__(self) -> None:
         if platform == "linux" or platform == "linux2":
             self.chrome_path = '/usr/bin/google-chrome'
-
-        elif platform == "darwin":
-            self.chrome_path = 'open -a /Applications/Google\ Chrome.app'
 
         elif platform == "win32":
             self.chrome_path = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
@@ -60,7 +60,7 @@ class ButlerAI:
         server.close()
 
     def execute_query(self, query):
-        # TODO: make this more concise
+        # TODO: lower voice interval or improve adapt sound
         if 'wikipedia' in query:
             speak('Searching Wikipedia....')
             query = query.replace('wikipedia', '')
@@ -68,8 +68,8 @@ class ButlerAI:
             speak('According to Wikipedia')
             print(results)
             speak(results)
-        elif 'youtube downloader' in query:
-            exec(open('youtube_downloader.py').read())
+        elif 'youtube download' in query:
+            exec(open('youtube.py').read())
 
         elif 'voice' in query:
             if 'female' in query:
@@ -78,16 +78,16 @@ class ButlerAI:
                 engine.setProperty('voice', voices[0].id)
             speak("Hello Sir, I have switched my voice. How is it?")
 
-        #conversation
+        #conversation trait
         if 'hello' in query:
             speak("Yes Sir, at your service")
         if 'who are you' in query:
             speak("I am an AI , however im still being development")
-        if 'who is Mas Endru ' in query:
-            speak("He is a very cool and inspired person ")
+        if 'Andrew ' in query:
+            speak("She is a very cool and inspired person ")
             
          
-
+        #command
         elif 'open youtube' in query:
 
             webbrowser.get('chrome').open_new_tab('https://youtube.com')
@@ -117,7 +117,7 @@ class ButlerAI:
         elif 'search youtube' in query:
             speak('What you want to search on Youtube?')
             youtube(takeCommand())
-        elif 'the time' in query:
+        elif 'time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f'Sir, the time is {strTime}')
 
@@ -153,12 +153,12 @@ class ButlerAI:
         elif 'shutdown' in query:
             if platform == "win32":
                 os.system('shutdown /p /f')
-            elif platform == "linux" or platform == "linux2" or "darwin":
+            elif platform == "linux" or platform == "linux2" :
                 os.system('poweroff')
 
-        elif 'cpu' in query:
+        elif 'status ' in query:
             cpu()
-        elif 'your friend' in query:
+        elif 'do you have any friends ' in query:
             speak('My friends are Google assisstant alexa and siri')
 
         elif 'joke' in query:
@@ -184,11 +184,11 @@ class ButlerAI:
             remember = open('data.txt', 'r')
             speak("you said me to remember that" + remember.read())
 
-        elif 'sleep' in query:
+        elif 'exit' in query:
             sys.exit()
 
         elif 'dictionary' in query:
-            speak('What you want to search in your intelligent dictionary?')
+            speak('What you want to search in your dictionary?')
             translate(takeCommand())
 
         elif 'news' in query:
