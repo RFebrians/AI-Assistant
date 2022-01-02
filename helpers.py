@@ -11,11 +11,13 @@ from difflib import get_close_matches
 
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[11].id)
 g = geocoder.ip('me')
 data = json.load(open('data.json'))
 
 def speak(audio) -> None:
+        rate = engine.getProperty('rate')
+        engine.setProperty('rate', rate-20)
         engine.say(audio)
         engine.runAndWait()
 
@@ -40,13 +42,13 @@ def takeCommand() -> str:
     with sr.Microphone() as source:
         print('Listening...')
         r.pause_threshold = 1
-        r.energy_threshold = 494
-        r.adjust_for_ambient_noise(source, duration=1.5)
+        r.energy_threshold = 350
+        r.adjust_for_ambient_noise(source, duration=1)
         audio = r.listen(source)
 
     try:
         print('Recognizing..')
-        query = r.recognize_google(audio, language='en-id')
+        query = r.recognize_google(audio, language='en') #en-id
         print(f'User said: {query}\n')
 
     except Exception as e:
@@ -56,13 +58,15 @@ def takeCommand() -> str:
         return 'None'
     return query
 
+## Free Code Camp Weather API Pass-through
 def weather():
     api_url = "https://fcc-weather-api.glitch.me/api/current?lat=" + \
         str(g.latlng[0]) + "&lon=" + str(g.latlng[1])
 
+## coord = coordinates
     data = requests.get(api_url)
     data_json = data.json()
-    if data_json['cod'] == 200:
+    if data_json['cod'] == 200: # response
         main = data_json['main']
         wind = data_json['wind']
         weather_desc = data_json['weather'][0]
