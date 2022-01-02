@@ -6,10 +6,12 @@ import speech_recognition as sr
 data = json.load(open('data.json'))
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
-
+engine.setProperty('voice', voices[10].id)
+# default voices engine.setProperty('voice', voices[0].id)
 
 def speak(audio):
+    newVoiceRate = 10
+    engine.setProperty('rate',newVoiceRate)
     engine.say(audio)
     engine.runAndWait()
 
@@ -19,13 +21,19 @@ def takeCommand():
     with sr.Microphone() as source:
         print('Listening...')
         r.pause_threshold = 1
-        r.energy_threshold = 494
-        r.adjust_for_ambient_noise(source, duration=1.5)
+        r.energy_threshold = 350
+        r.adjust_for_ambient_noise(source, duration=1)
         audio = r.listen(source)
+        
+        #default noise for listening below
+        #r.pause_threshold = 1
+        #r.energy_threshold = 494
+        #r.adjust_for_ambient_noise(source, duration=1.5)
+        #audio = r.listen(source)
 
     try:
         print('Recognizing..')
-        query = r.recognize_google(audio, language='en-id')
+        query = r.recognize_google(audio, language='en')
         print(f'User said: {query}\n')
 
     except Exception as e:
@@ -35,6 +43,7 @@ def takeCommand():
         return 'None'
     return query
 
+## Exception handling 
 
 def translate(word):
     word = word.lower()
