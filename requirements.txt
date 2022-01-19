@@ -1,7 +1,7 @@
 beautifulsoup4==4.10.0
 bidict==0.21.3
 certifi==2021.10.8
-charset-normalizer==2.0.6
+charset-normalizer==2.0.10
 click==8.0.3
 colorama==0.4.4
 comtypes==1.1.10
