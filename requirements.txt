@@ -8,7 +8,7 @@ comtypes==1.1.10
 decorator==5.1.1
 future==0.18.2
 geocoder==1.38.1
-idna==3.2
+idna==3.3
 jsonlib-python3==1.6.1
 loc==0.0.2
 MouseInfo==0.1.3
