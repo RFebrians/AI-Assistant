@@ -8,7 +8,7 @@ import sys
 import smtplib
 from news import speak_news, getNewsUrl
 from diction import translate
-from helpers import *
+from information import *
 from youtube import youtube
 from sys import platform
 import os
