@@ -43,7 +43,7 @@ def takeCommand():
         return 'None'
     return query
 
-## Exception handling 
+## Translate in progress 
 
 def translate(word):
     word = word.lower()

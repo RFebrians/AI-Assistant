@@ -37,27 +37,18 @@ class ButlerAI:
             'chrome', None, webbrowser.BackgroundBrowser(self.chrome_path)
         )
 
-    def wishMe(self) -> None:
+    def greetings(self) -> None:
         hour = int(datetime.datetime.now().hour)
         if hour >= 0 and hour < 12:
-            speak("Good Morning SIR")
+            speak("Good Morning ")
         elif hour >= 12 and hour < 18:
-            speak("Good Afternoon SIR")
+            speak("Good Afternoon ")
 
         else:
-            speak('Good Evening SIR')
+            speak('Good Evening ')
 
         weather()
-        speak('Voice Assistant is Ready. Please tell me how can I help you SIR?')
-
-    ## experimental mail 
-    def sendEmail(self, to, content) -> None:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.ehlo()
-        server.starttls()
-        server.login('email', 'password')
-        server.sendmail('email', to, content)
-        server.close()
+        speak('Voice Assistant is Ready. How can I help you ?')
 
     def execute_query(self, query):
         # TODO: lower voice interval or improve adapt sound
@@ -80,11 +71,11 @@ class ButlerAI:
 
         #conversation trait
         if 'hello' in query:
-            speak("Yes Sir, at your service")
+            speak("Hi, How are you  ? ")
         if 'who are you' in query:
-            speak("I am an AI , however im still being development")
-        if 'Andrew ' in query:
-            speak("She is a very cool and inspired person ")
+            speak("I am your assistant , and i am still being development")
+        if 'Endruw ' in query:
+            speak("He is a very cool and inspired person ")
             
          
         #command
@@ -95,7 +86,7 @@ class ButlerAI:
         elif 'open amazon' in query:
             webbrowser.get('chrome').open_new_tab('https://amazon.com')
 
-        elif 'cpu' in query:
+        elif 'status' in query:
             cpu()
 
         elif 'joke' in query:
@@ -112,9 +103,9 @@ class ButlerAI:
             webbrowser.get('chrome').open_new_tab('https://stackoverflow.com')
 
         elif 'play music' in query:
-            os.startfile("path to music")
+            os.startfile("./assets/bgm.mp3")
 
-        elif 'search youtube' in query:
+        elif 'search on youtube' in query:
             speak('What you want to search on Youtube?')
             youtube(takeCommand())
         elif 'time' in query:
@@ -127,52 +118,51 @@ class ButlerAI:
             url = 'https://google.com/search?q=' + search
             webbrowser.get('chrome').open_new_tab(
                 url)
-            speak('Here is What I found for' + search)
+            speak('Based on What is Google Says' + search)
 
+        ## location on development
         elif 'location' in query:
             speak('What is the location?')
             location = takeCommand()
-            url = 'https://google.nl/maps/place/' + location + '/&amp;'
+            url = 'https://google.com/maps/place/' + location + '/&amp;'
             webbrowser.get('chrome').open_new_tab(url)
             speak('Here is the location ' + location)
 
-        elif 'your name' in query:
-            speak('My name is umm still development')
-        elif 'who made you' in query:
-            speak('I was created in 2021')
+        elif 'name' in query:
+            speak('I am your assistant')
+        elif 'who ' in query:
+            speak('I am just an artificial intelegence')
             
-        elif 'where do you live' in query:
-            speak('I live in your heart a.k.a system ')
-        elif 'open code' in query:
+        elif ' live' in query:
+            speak('I live in your heart ')
+        elif ' program ' in query:
             if platform == "win32":
                 os.startfile(
                     "C:\\Users\\zegveld\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
             elif platform == "linux" or platform == "linux2" or "darwin":
                 os.system('code .')
 
+        ## below command are REALLY SHUTDOWN . IT'S GOOD FOR PRANK
         elif 'shutdown' in query:
             if platform == "win32":
                 os.system('shutdown /p /f')
             elif platform == "linux" or platform == "linux2" :
                 os.system('poweroff')
 
+        ## exit program
+        elif 'exit' in query:
+            sys.exit()
+
         elif 'status ' in query:
             cpu()
-        elif 'do you have any friends ' in query:
+        elif 'friends ' in query:
             speak('My friends are Google assisstant alexa and siri')
-
-        elif 'joke' in query:
-            joke()
-
-        elif 'screenshot' in query:
-            speak("taking screenshot")
-            screenshot()
 
         elif 'github' in query:
             webbrowser.get('chrome').open_new_tab(
                 'https://github.com')
 
-        elif 'remember that' in query:
+        elif 'remember ' in query:
             speak("what should i remember sir")
             rememberMessage = takeCommand()
             speak("you said me to remember"+rememberMessage)
@@ -180,15 +170,16 @@ class ButlerAI:
             remember.write(rememberMessage)
             remember.close()
 
-        elif 'do you remember anything' in query:
+        elif 'remember anything' in query:
             remember = open('data.txt', 'r')
             speak("you said me to remember that" + remember.read())
 
-        elif 'exit' in query:
-            sys.exit()
+        elif 'something important' in query:
+            remember = open('data.txt', 'r')
+            speak("you said me to remember that" + remember.read())
 
         elif 'dictionary' in query:
-            speak('What you want to search in your dictionary?')
+            speak('What do you want to search in your dictionary?')
             translate(takeCommand())
 
         elif 'news' in query:
@@ -213,7 +204,7 @@ class ButlerAI:
 
 if __name__ == '__main__':
     bot_ = ButlerAI()
-    bot_.wishMe()
+    bot_.greetings()
     while True:
         query = takeCommand().lower()
         bot_.execute_query(query)
