@@ -17,7 +17,7 @@ import getpass
 engine = pyttsx3.init()
 rate = engine.getProperty('rate')
 voices = engine.getProperty('voices')
-engine.setProperty('rate', rate +15)
+engine.setProperty('rate', rate -5)
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[10].id)
 
@@ -47,8 +47,8 @@ class ButlerAI:
         else:
             speak('Good Evening ')
 
-        weather()
-        speak('Voice Assistant is Ready. How can I help you ?')
+        #weather()
+        speak('AI assistant is ready. may I help you')
 
     def execute_query(self, query):
         # TODO: lower voice interval or improve adapt sound
@@ -74,8 +74,10 @@ class ButlerAI:
             speak("Hi, How are you  ? ")
         if 'who are you' in query:
             speak("I am your assistant , and i am still being development")
-        if 'Endruw ' in query:
+        if 'endruw ' in query:
             speak("He is a very cool and inspired person ")
+        if 'thank you' in query:
+            speak("You're Welcome")
             
          
         #command
@@ -91,6 +93,9 @@ class ButlerAI:
 
         elif 'joke' in query:
             joke()
+        
+        elif 'weather' in query:
+            weather()
 
         elif 'screenshot' in query:
             speak("taking screenshot")
@@ -133,9 +138,9 @@ class ButlerAI:
         elif 'who ' in query:
             speak('I am just an artificial intelegence')
             
-        elif ' live' in query:
+        elif 'live' in query:
             speak('I live in your heart ')
-        elif ' program ' in query:
+        elif ' code ' in query:
             if platform == "win32":
                 os.startfile(
                     "C:\\Users\\zegveld\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
@@ -169,12 +174,20 @@ class ButlerAI:
             remember = open('data.txt', 'w')
             remember.write(rememberMessage)
             remember.close()
+            
+        elif 'homework' in query:
+            speak("what kind of homework sir")
+            rememberMessage = takeCommand()
+            speak("you said me to remember"+rememberMessage)
+            remember = open('homework.txt', 'w')
+            remember.write(rememberMessage)
+            remember.close()
 
-        elif 'remember anything' in query:
+        elif 'data' in query:
             remember = open('data.txt', 'r')
             speak("you said me to remember that" + remember.read())
 
-        elif 'something important' in query:
+        elif 'task' in query:
             remember = open('data.txt', 'r')
             speak("you said me to remember that" + remember.read())
 
