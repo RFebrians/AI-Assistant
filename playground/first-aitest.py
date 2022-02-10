@@ -1,11 +1,12 @@
 """
 MAIN ENGINE:
 - Objective : Control Windows programs with command voice
+- Environment : Windows 7
 """
 
 # import modules
 
-# subprocess module allows you to spawn new processes
+# subprocess module allows you to create new processes
 import subprocess
 
 # speech_recognition Library for performing speech recognition with support for Google Speech Recognition
