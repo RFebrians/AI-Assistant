@@ -7,7 +7,7 @@ title = AI Assist
 package.name = demotest
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = dev.test
+package.domain = com.test
 
 # (str) Source code where the main.py live
 source.dir = ./
@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,beautifulsoup4,bidict,certifi,charset-normalizer,click,colorama,comtypes,decorator,future,geocoder,idna,jsonlib-python3,loc,MouseInfo,Pillow,psutil,PyAutoGUI,PyGetWindow,pyjokes,PyMsgBox,pyperclip,PyRect,PyScreeze,pyttsx3,pytube,pytweening,ratelim,requests,six,soupsieve,SpeechRecognition,urllib3,wikipedia
+requirements = python3,kivy,beautifulsoup4,bidict,certifi,charset-normalizer,click,colorama,comtypes,decorator,future,geocoder,idna,jsonlib-python3,loc,MouseInfo,Pillow,psutil,PyAudio,PyAutoGUI,PyGetWindow,pyjokes,PyMsgBox,pyperclip,PyRect,PyScreeze,pyttsx3,pytube,pytweening,ratelim,requests,six,soupsieve,SpeechRecognition,urllib3,wikipedia
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -275,15 +275,15 @@ p4a.branch = develop
 # (str) Path to a custom kivy-ios folder
 #ios.kivy_ios_dir = ../kivy-ios
 # Alternately, specify the URL and branch of a git checkout:
-ios.kivy_ios_url = https://github.com/kivy/kivy-ios
-ios.kivy_ios_branch = master
+#ios.kivy_ios_url = https://github.com/kivy/kivy-ios
+#ios.kivy_ios_branch = master
 
 # Another platform dependency: ios-deploy
 # Uncomment to use a custom checkout
 #ios.ios_deploy_dir = ../ios_deploy
 # Or specify URL and branch
-ios.ios_deploy_url = https://github.com/phonegap/ios-deploy
-ios.ios_deploy_branch = 1.10.0
+#ios.ios_deploy_url = https://github.com/phonegap/ios-deploy
+#ios.ios_deploy_branch = 1.10.0
 
 # (bool) Whether or not to sign the code
 ios.codesign.allowed = false
