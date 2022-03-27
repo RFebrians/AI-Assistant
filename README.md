@@ -34,6 +34,8 @@ an experimental AI
 
 ## reference 
 
+https://github.com/ggeop/Python-ai-assistant
+
 https://github.com/MichalKacprzak99/jarvis
 
 https://www.youtube.com/watch?v=0sjRkz1UIDQ&ab_channel=edureka%21
