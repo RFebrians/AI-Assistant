@@ -34,8 +34,6 @@ an experimental AI
 
 ## reference 
 
-https://rfebrians.medium.com/virtual-assistant-on-microprocessor-e012943d09c0
-
 https://github.com/ggeop/Python-ai-assistant
 
 https://github.com/MichalKacprzak99/jarvis
