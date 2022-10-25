@@ -3,7 +3,7 @@ bidict==0.21.3
 certifi==2021.10.8
 charset-normalizer==2.0.6
 click==8.0.3
-colorama==0.4.4
+colorama==0.4.6
 comtypes==1.1.10
 decorator==5.1.0
 future==0.18.2
