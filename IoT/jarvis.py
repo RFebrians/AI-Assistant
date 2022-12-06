@@ -43,7 +43,7 @@ def turnOff(satu=0, dua=0, tiga=0, empat=0, lima=0, enam=0, buka=0, tutup=0):
     GPIO.output(b, buka)
     GPIO.output(p, tutup)
 
-# gtts
+# gtts 하이퍼 마라미터
 language = 'en'
 done = False
 
