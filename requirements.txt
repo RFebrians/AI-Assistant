@@ -2,7 +2,7 @@ beautifulsoup4==4.10.0
 bidict==0.21.3
 certifi==2023.7.22
 charset-normalizer==2.0.6
-click==8.0.3
+click==8.1.7
 colorama==0.4.4
 comtypes==1.1.10
 decorator==5.1.0
