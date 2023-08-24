@@ -1,4 +1,4 @@
-beautifulsoup4==4.10.0
+beautifulsoup4==4.12.2
 bidict==0.21.3
 certifi==2023.7.22
 charset-normalizer==2.0.6
